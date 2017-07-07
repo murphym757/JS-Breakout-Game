@@ -1,0 +1,28 @@
+
+
+canvas {
+  background: #599697;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  display: table;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  background-color: #599697;
+  margin:0 auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
