@@ -26,8 +26,8 @@
 
             <footer class="footer">
                 <span class="text-muted">
-                  <a href="https://github.com/murphym757/sega_fansite"><img src="assets/images/github.png", alt="png-img", height="80", width="160"></a>
-                  <a href="https://maurice-murphy-portfolio.herokuapp.com/"><img src="assets/images/mmlogo2.png", alt="png-img", height="60", width="140"></a><br>Copyright &copy; 2017<br></span>
+                  <a href="https://github.com/murphym757/sega_fansite"><img src="assets/images/github.png", alt="png-img", height="60", width="140"></a>
+                  <a href="https://maurice-murphy-portfolio.herokuapp.com/"><img src="assets/images/mmlogo2.png", alt="png-img", height="40", width="120"></a><br>Copyright &copy; 2017<br></span>
             </footer>
           </div>
         </div>
