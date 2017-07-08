@@ -33,12 +33,14 @@ for (c = 0; c < brickColumnCount; c++) {
   }
 }
 
+//Control Calls
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
 document.addEventListener("touchstart", touchHandler, false);
 document.addEventListener("touchmove", touchHandler);
 
+//Bricks
 function drawBricks() {
   for (c = 0; c < brickColumnCount; c++) {
     for (r = 0; r < brickRowCount; r++) {
@@ -57,19 +59,6 @@ function drawBricks() {
   }
 }
 
-function collisionDetection() {
-  for (c = 0; c < brickColumnCount; c++) {
-    for (r = 0; r < brickRowCount; r++) {
-      let b = bricks[c][r];
-      if (b.status == 1) {
-        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
-          dy = -dy;
-          b.status = 0;
-        }
-      }
-    }
-  }
-}
 
 function keyDownHandler(e) {
   if (e.keyCode == 39) {
@@ -87,10 +76,12 @@ function keyUpHandler(e) {
   }
 }
 
+//mouse support
 function mouseMoveHandler(e) {
   movePaddleByClientX(e.clientX);
 }
 
+//touch support
 function touchHandler(e) {
   if (e.touches) {
     e.preventDefault();
@@ -104,6 +95,7 @@ function touchHandler(e) {
   }
 }
 
+//Connects both mouse and touch support
 function movePaddleByClientX(clientX) {
   let relativeX = clientX - canvas.offsetLeft;
   if (relativeX > 0 && (relativeX + (paddleWidth / 2)) < canvas.width) {
@@ -119,6 +111,7 @@ function movePaddleByClientX(clientX) {
   }
 }
 
+//Breaking Bricks
 function collisionDetection() {
   for (c = 0; c < brickColumnCount; c++) {
     for (r = 0; r < brickRowCount; r++) {
@@ -138,18 +131,21 @@ function collisionDetection() {
   }
 }
 
+//Score (or Broken Bricks)
 function drawScore() {
   ctx.font = "12px orbitron";
   ctx.fillStyle = "#FEFEFE";
   ctx.fillText("Broken Bricks: " + score, 8, 20);
 }
 
+//Lives
 function drawLives() {
   ctx.font = "12px orbitron";
   ctx.fillStyle = "#FEFEFE";
   ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
 }
 
+//Ball
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -158,6 +154,7 @@ function drawBall() {
   ctx.closePath();
 }
 
+//Paddle
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
@@ -166,6 +163,7 @@ function drawPaddle() {
   ctx.closePath();
 }
 
+//The Entire Game
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBricks();
@@ -210,4 +208,5 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
+//Prints everything to the screen
 draw();
